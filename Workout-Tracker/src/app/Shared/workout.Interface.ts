@@ -6,3 +6,12 @@ export interface IExercise {
   restTimeMinutes : number;
   isBodyWeight : boolean;
 }
+
+export interface Workout{
+  workoutName: string,
+  exercises : IExercise[]
+}
+
+export interface WorkoutList{
+  workouts : Workout[]
+}

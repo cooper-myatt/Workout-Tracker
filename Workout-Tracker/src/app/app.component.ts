@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExerciseService } from './exercise.service';
+import { WorkoutService } from './Shared/workout.service';
 
 @Component({
   selector: 'app-root',

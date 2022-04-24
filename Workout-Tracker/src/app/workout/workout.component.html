@@ -1,4 +1,6 @@
-<p *ngFor="let ex of workout; let i = index">
-    Exercise {{i+1}}: {{ex.exerciseName}}
-</p>
+<h3>{{workout.workoutName}} Exercises:</h3>
 
+  <div *ngFor="let e of workout.exercises">
+    <h3>{{e.exerciseName}}</h3>
+
+  </div>
