@@ -11,6 +11,9 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { AppNavbarComponent } from './navbar/app-navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { WorkoutFormComponent } from './workout-list/workout-form/workout-form.component';
+import { ExerciseInformationComponent } from './exercise-information/exercise-information.component';
+import { BadLinkPageComponent } from './Shared/bad-link-page/bad-link-page.component';
+import { ExerciseFormComponent } from './workout/exercise-form/exercise-form.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { WorkoutFormComponent } from './workout-list/workout-form/workout-form.c
     ScheduleComponent,
     AppNavbarComponent,
     HomepageComponent,
-    WorkoutFormComponent
+    WorkoutFormComponent,
+    ExerciseInformationComponent,
+    BadLinkPageComponent,
+    ExerciseFormComponent
   ],
   imports: [
     BrowserModule,

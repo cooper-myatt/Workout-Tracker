@@ -7,11 +7,11 @@ export interface IExercise {
   isBodyWeight : boolean;
 }
 
-export interface Workout{
+export interface IWorkout{
   workoutName: string,
   exercises : IExercise[]
 }
 
-export interface WorkoutList{
-  workouts : Workout[]
+export interface IWorkoutList{
+  workouts : IWorkout[]
 }

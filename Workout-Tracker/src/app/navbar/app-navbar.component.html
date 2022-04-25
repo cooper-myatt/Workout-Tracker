@@ -1,12 +1,11 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" routerLink="/homepage">Training Blocks</a>
+    <div class="navbar-header" routerLinkActive="active">
+      <a class="navbar-brand"routerLink="/homepage" >Training Blocks</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a routerLink="/workout-list" routerLinkActive="nav-item active">Workouts</a></li>
-      <li><a routerLink="/workout">Exercises</a></li>
-      <li><a >Workout Information WIP</a></li>
+      <li routerLinkActive="nav-item active"><a routerLink="/workout-list">Workouts</a></li>
+      <li routerLinkActive="nav-item active"><a routerLink="/exercise-information" >Exercise Information</a></li>
     </ul>
   </div>
 </nav>

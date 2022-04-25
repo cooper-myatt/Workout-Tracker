@@ -24,7 +24,6 @@ export class WorkoutFormComponent implements OnInit {
 onFormSubmit() {
   this.WorkoutName.emit(this.reactiveForm.value.WorkoutName);
   this.cancelControl.emit(true);
-  // Reset Form
   this.reactiveForm.reset();
 }
 cancel(){

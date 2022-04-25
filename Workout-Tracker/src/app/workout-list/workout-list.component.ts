@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkoutService } from '../Shared/workout.service';
-import { Workout } from '../Shared/workout.Interface';
+import { IWorkout } from '../Shared/workout.Interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-workout-list',
@@ -15,8 +16,8 @@ export class WorkoutListComponent implements OnInit{
   //Used for edit
   workoutLoc : number = -1;
   editWorkoutForm : boolean = false;
-  selectedWorkout : Workout;
-  constructor(private workoutService: WorkoutService) { }
+  selectedWorkout : IWorkout;
+  constructor(private workoutService: WorkoutService, private router : Router) { }
 
   ngOnInit(): void {
         // 1. Set the local "workoutList" array with the global "workoutServiceList" array via the "getworkoutList" method
@@ -25,7 +26,7 @@ export class WorkoutListComponent implements OnInit{
         // 2. Listening for any changes to the "workoutServiceList" array and updated our local "workoutList" array when that occurs
         this.workoutService.workoutListChanged.subscribe((updatedWorkouts) => {
           this.workoutList = updatedWorkouts;
-        });
+        })
   }
   removeWorkout(loc : number){
     this.workoutService.removeWorkout(loc)
@@ -55,7 +56,8 @@ export class WorkoutListComponent implements OnInit{
     this.editWorkoutForm = false;
   }
   viewSelectedWorkout(loc : number){
-    console.log(this.workoutService.viewWorkout(loc))
+    //console.log(this.workoutService.viewWorkout(loc));
     this.selectedWorkout = this.workoutService.viewWorkout(loc);
+
   }
 }

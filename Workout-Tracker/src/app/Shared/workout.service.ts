@@ -1,12 +1,12 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { IExercise, Workout, WorkoutList } from './workout.Interface';
+import { IExercise, IWorkout, IWorkoutList } from './workout.Interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WorkoutService {
 workoutListChanged = new EventEmitter();
-
+exerciseListChanged = new EventEmitter();
   exercise1: IExercise = {
     exerciseName: 'Deadlift',
     minReps : 8,
@@ -24,16 +24,16 @@ workoutListChanged = new EventEmitter();
     isBodyWeight : false
   }
 
-  workout1 : Workout= {
+  workout1 : IWorkout= {
     workoutName : 'Test 1',
     exercises : [this.exercise1, this.exercise2]
   }
-  workout2 : Workout= {
+  workout2 : IWorkout= {
     workoutName : 'Test 2',
     exercises : [this.exercise1, this.exercise2]
   }
 
-  workoutList : WorkoutList = {
+  workoutList : IWorkoutList = {
     workouts : [this.workout1 , this.workout2]
   }
   constructor() { }
@@ -41,7 +41,7 @@ workoutListChanged = new EventEmitter();
     console.log(this.workoutList)
   }
   viewWorkout(loc : number){
-    let workout = this.workoutList.workouts.slice(loc, loc+1)
+    let workout = this.workoutList.workouts.slice(loc, loc + 1)
     return workout[0]
     }
   viewWorkoutList(){
@@ -53,7 +53,8 @@ workoutListChanged = new EventEmitter();
   }
 
   removeWorkout(loc : number){
-    this.workoutList.workouts.splice(loc, loc+1)
+    console.log(this.workoutList.workouts)
+    this.workoutList.workouts.splice(loc, 1)
     this.workoutListChanged.emit(this.viewWorkoutList());
   }
 
@@ -71,13 +72,16 @@ workoutListChanged = new EventEmitter();
     this.workoutListChanged.emit(this.viewWorkoutList());
   }
 
+  addExercise(ex : IExercise, loc : number){
+    let exercise = this.workoutList.workouts[loc];
+    exercise.exercises.push(ex);
+  }
+
+  removeExercise(wloc : number, eloc : number){
+    this.workoutList.workouts[wloc].exercises.splice(eloc,1);
+    this.exerciseListChanged.emit(this.workoutList.workouts[wloc]);
+  }
 /*
-  addExercise(ex : IExercise){
-    this.workout.push(ex);
-  }
-  removeExercise(loc : number){
-    this.workout.splice(loc);
-  }
   viewExercise(loc : number){
     this.workout.slice(loc, loc+1);
   }
