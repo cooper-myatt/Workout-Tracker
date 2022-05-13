@@ -14,6 +14,7 @@ import { WorkoutFormComponent } from './workout-list/workout-form/workout-form.c
 import { ExerciseInformationComponent } from './exercise-information/exercise-information.component';
 import { BadLinkPageComponent } from './Shared/bad-link-page/bad-link-page.component';
 import { ExerciseFormComponent } from './workout/exercise-form/exercise-form.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ExerciseFormComponent } from './workout/exercise-form/exercise-form.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
